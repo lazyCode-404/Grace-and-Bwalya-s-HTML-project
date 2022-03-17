@@ -109,28 +109,66 @@
             <p>You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers. You can also use the Unicode escape sequences as characters in identifiers. Some examples of legal names are Number_hits, temp99, and _name.
             </p>
 
-        <h2 id="declaring_variables">Declaring Variables</h2>
-           <p>You can declare a variable in three ways:
-            With the keyword var. For example,</p>
-            <div class="variables">
-              <p>var x = 42.</p>
+            <h2 id="declaring_variables">Declaring Variables</h2>
+            <p>You can declare a variable in three ways: With the keyword var. For example,</p>
+            <div class="function">
+                <p>var x = 42.</p>
+            </div>
+            <p>This syntax can be used to declare both local and global variables. </p>
+            <p>By simply assigning it a value. For example,</p>
 
-            </div> 
-            <p>This syntax can be used to declare both local and global variables. </p> 
-             <p>By simply assigning it a value. For example,</p>
-             
-             <div class="variables">
+            <div class="function">
                 x = 42.
-             </div>
-            <p>This always declares a global variable. It generates a strict JavaScript warning.
-               You shouldn't use this variant.</p> 
+            </div>
+            <p>This always declares a global variable. It generates a strict JavaScript warning. You shouldn't use this variant.</p>
 
-               <p>With the keyword let. For example,</p>
+            <p>With the keyword let. For example,</p>
 
-               <div class="variables">
+            <div class="function">
                 let y = 13
-             </div>
-             <p>This syntax can be used to declare a block scope local variable. See Variable scope below.</p>
+            </div>
+            <p>This syntax can be used to declare a block scope local variable. See Variable scope below.</p>
+            <h2 id="Global variables">Global Variables</h2>
+            <p>Global variables are in fact properties of the global object. In web pages the global object is window, so you can set and access global variables using the window.variable syntax.</p>
+            <p>Consequently, you can access global variables declared in one window or frame from another window or frame by specifying the window or frame name. For example, if a variable called phoneNumber is declared in a document, you can refer to this
+                variable from an iframe as parent.phoneNumber.</p>
+            <h2 id="constants">Constants</h2>
+            <p>You can create a read-only, named constant with the const keyword. The syntax of a constant identifier is the same as for a variable identifier: it must start with a letter, underscore or dollar sign and can contain alphabetic, numeric, or
+                underscore characters.
+                <div class="functions">
+                    <p>const PI = 3.14;</p>
+                </div>
+                <p>A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.</p>
+                <p>The scope rules for constants are the same as those for let block scope variables. If the const keyword is omitted, the identifier is assumed to represent a variable.</p>
+                <p>You cannot declare a constant with the same name as a function or variable in the same scope. For example:</p>
+            </p>
+            <div class="functions">
+                <p>// THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS WILL CAUSE AN ERROR ALSO function f() { const g = 5; var g; //statements }
+                </p>
+            </div>
+            <p>However, object attributes are not protected, so the following statement is executed without problems.</p>
+            <div class="functions">
+                const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";
+            </div>
+            <h2 id="data-types">Data types</h2>
+            <p>The latest ECMAScript standard defines seven data types:</p>
+            <ul>
+                <li>Six data types that are primitives:</li>
+                <div class="extralist">
+                    <ul>
+                        <li>Boolean. true and false.</li>
+                        <li>null. A special keyword denoting a null value. Because JavaScript is case-sensitive, null is not the same as Null, NULL, or any other variant.</li>
+                        <li>undefined. A top-level property whose value is undefined.</li>
+                        <li>Number. 42 or 3.14159.
+                        </li>
+                        <li>String. "Howdy"</li>
+                        <li>Symbol (new in ECMAScript 2015). A data type whose instances are unique and immutable.</li>
+                    </ul>
+                </div>
+                <li>and Object</li>
+            </ul>
+            <p>Although these data types are a relatively small amount, they enable you to perform useful functions with your applications. Objects and functions are the other fundamental elements in the language. You can think of objects as named containers
+                for values, and functions as procedures that your application can perform.</p>
 
         </section>
 
